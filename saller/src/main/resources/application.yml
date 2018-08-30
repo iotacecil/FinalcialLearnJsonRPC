@@ -1,0 +1,12 @@
+server:
+  servlet:
+    context-path: /seller
+  port: 8083
+
+rpc:
+  manager:
+    url: http://localhost:8081/manager/
+
+logging:
+  level:
+    com.googlecode.jsonrpc4j: debug

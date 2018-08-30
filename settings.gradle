@@ -1,0 +1,8 @@
+rootProject.name = 'finalLearn'
+include 'util'
+include 'api'
+include 'entity'
+include 'saller'
+include 'manager'
+include 'swagger'
+
