@@ -23,7 +23,7 @@ public class ErrorControllerAdvice {
         errorAttributes.put("code",errorEnum.getCode() );
         errorAttributes.put("canRetry",errorEnum.isCanRetry() );
         //这里再抛一个异常就到basicerror里了
-        Assert.isNull(errorAttributes,"advice" );
+//        Assert.isNull(errorAttributes,"advice" );
         errorAttributes.put("type","advice");
 
         return new ResponseEntity(errorAttributes, HttpStatus.INTERNAL_SERVER_ERROR);

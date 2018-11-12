@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity(name="product")
+@Entity
 public class Product {
     @Id
     private String id;

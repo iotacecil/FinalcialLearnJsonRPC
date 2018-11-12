@@ -8,11 +8,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
+import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import util.RestUtil;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +55,17 @@ public class ProductControllerTest {
         exceptions.add(e1);
         exceptions.add(e2);
         exceptions.add(e3);
+//        ResponseErrorHandler errorHandler = new ResponseErrorHandler() {
+//            @Override
+//            public boolean hasError(ClientHttpResponse response) throws IOException {
+//                return false;
+//            }
+//
+//            @Override
+//            public void handleError(ClientHttpResponse response) throws IOException {
+//
+//            }
+//        }
     }
 
 
@@ -62,6 +76,11 @@ public class ProductControllerTest {
             Product rst = RestUtil.postJSON(rest, baseUrl + "/products", product, Product.class);
             Assert.notNull(rst.getCreateAt(),"插入失败" );
         });
+
+    }
+    @Test
+    public void createError(){
+
         exceptions.forEach(product -> {
             Product rst = RestUtil.postJSON(rest, baseUrl + "/products", product, Product.class);
             Assert.notNull(rst.getCreateAt(),"插入失败" );

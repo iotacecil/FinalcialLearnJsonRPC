@@ -51,7 +51,7 @@ public class ProductController {
         }
         Pageable pageable = new PageRequest(pageNum,pageSize);
         Page<Product> page = service.query(idList, minRewardRate, maxRewardRate, statusList, pageable);
-        LOG.info("={}",page );
+        LOG.info("查询产品结果={}",page );
         return page;
     }
 }
